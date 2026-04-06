@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rennan Pastich Loureiro</title>
+  <meta name="description" content="Academic website of Rennan Pastich Loureiro" />
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --surface: #ffffff;
+      --text: #1f1f1c;
+      --muted: #66665f;
+      --line: #e5e3dc;
+      --accent: #1a1a1a;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .page {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 32px 24px 64px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 28px;
+    }
+
+    .brand {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 320px minmax(0, 1fr);
+      gap: 44px;
+      align-items: start;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 24px;
+      align-self: start;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 26px;
+    }
+
+    .name {
+      font-size: 1.9rem;
+      line-height: 1.15;
+      margin: 0 0 10px;
+      letter-spacing: -0.03em;
+    }
+
+    .role {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 18px;
+    }
+
+    .sidebar p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .contact-list {
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      font-size: 0.96rem;
+    }
+
+    .cta {
+      margin-top: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 16px;
+      border: 1px solid var(--text);
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .main {
+      display: grid;
+      gap: 18px;
+    }
+
+    section {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 28px;
+    }
+
+    h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+
+    .intro {
+      font-size: 1.08rem;
+      color: var(--text);
+      margin: 0;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .tag {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.92rem;
+      color: var(--muted);
+      background: #fcfcfb;
+    }
+
+    .item {
+      padding: 16px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .item:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .item:last-of-type {
+      padding-bottom: 0;
+    }
+
+    .item-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: baseline;
+      margin-bottom: 6px;
+    }
+
+    .item-title {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .item-date {
+      color: var(--muted);
+      white-space: nowrap;
+      font-size: 0.95rem;
+    }
+
+    .item-subtitle {
+      color: var(--muted);
+      margin-bottom: 8px;
+      font-size: 0.96rem;
+    }
+
+    .item p {
+      margin: 0;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    footer {
+      color: var(--muted);
+      font-size: 0.92rem;
+      text-align: center;
+      padding-top: 10px;
+    }
+
+    @media (max-width: 920px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .split {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 20px 16px 44px;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .item-head {
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      section,
+      .card {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">Rennan Pastich Loureiro</div>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#cv">CV</a>
+      </nav>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="card">
+          <h1 class="name">Rennan Pastich Loureiro</h1>
+          <div class="role">Ph.D. Student in Political Science<br />Federal University of Pernambuco (UFPE)</div>
+          <p>Recife, Pernambuco, Brazil</p>
+          <p>Research on international organizations, global health governance, comparative politics, democratization, and quantitative methods.</p>
+
+          <ul class="contact-list">
+            <li><a href="mailto:rennan.loureiro@ufpe.br">rennan.loureiro@ufpe.br</a></li>
+            <li><a href="https://github.com/yourusername" target="_blank" rel="noreferrer">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/yourusername" target="_blank" rel="noreferrer">LinkedIn</a></li>
+            <li><a href="https://scholar.google.com" target="_blank" rel="noreferrer">Google Scholar</a></li>
+          </ul>
+
+          <a class="cta" id="cv" href="Loureiro_Rennan__Stockholm__CV.pdf" target="_blank" rel="noreferrer">Download CV</a>
+        </div>
+      </aside>
+
+      <main class="main">
+        <section id="about">
+          <h2>About</h2>
+          <p class="intro">
+            I am a Ph.D. student in Political Science at the Federal University of Pernambuco (UFPE). My research interests include international relations, international organizations, global health governance, the United Nations General Assembly, the United Nations Security Council, comparative politics, democratization, populism, and both quantitative and qualitative methods.
+          </p>
+        </section>
+
+        <section id="research">
+          <h2>Research Areas</h2>
+          <div class="tags">
+            <span class="tag">International Relations</span>
+            <span class="tag">International Organizations</span>
+            <span class="tag">Global Health Governance</span>
+            <span class="tag">United Nations General Assembly</span>
+            <span class="tag">United Nations Security Council</span>
+            <span class="tag">Comparative Politics</span>
+            <span class="tag">Democratization</span>
+            <span class="tag">Populism</span>
+            <span class="tag">Quantitative Methods</span>
+            <span class="tag">Qualitative Methods</span>
+          </div>
+        </section>
+
+        <section>
+          <h2>Education</h2>
+
+          <div class="item">
+            <div class="item-head">
+              <div class="item-title">Federal University of Pernambuco (UFPE)</div>
+              <div class="item-date">2025–Present</div>
+            </div>
+            <div class="item-subtitle">Ph.D. in Political Science</div>
+            <p>Advisor: Rafael Mesquita</p>
+          </div>
+
+          <div class="item">
+            <div class="item-head">
+              <div class="item-title">Federal University of Pernambuco (UFPE)</div>
+              <div class="item-date">2021–2024</div>
+            </div>
+            <div class="item-subtitle">Master in Political Science</div>
+            <p>GPA: 3.714 (0–4 scale). Thesis: <em>From Post-War to Pandemic: The Construction of the Human Rights and Health Agenda at the United Nations General Assembly</em>.</p>
+          </div>
+
+          <div class="item">
+            <div class="item-head">
+              <div class="item-title">Federal University of Pernambuco (UFPE)</div>
+              <div class="item-date">2018–2022</div>
+            </div>
+            <div class="item-subtitle">Bachelor of Political Science</div>
+          </div>
+        </section>
+
+        <section id="publications">
+          <h2>Selected Publications</h2>
+
+          <div class="item">
+            <div class="item-title">Coalition Formation and Co-sponsorship in the United Nations Security Council</div>
+            <div class="item-subtitle">Book chapter · with Tareq Yacoub Helou and Madeleine O. Hosli · 2025</div>
+            <p>In <em>Multilateralism and the United Nations Security Council</em>, Springer Nature Switzerland.</p>
+          </div>
+
+          <div class="item">
+            <div class="item-title">World Humanitarian Day: August 19 ignored by a world at war</div>
+            <div class="item-subtitle">Newspaper article · with A. C. Melo · 2025</div>
+            <p><em>Jornal do Commercio</em> (Recife).</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>Working Papers</h2>
+
+          <div class="item">
+            <div class="item-title">From Post-War to Pandemic: The Construction of the Human Rights and Health Agenda at the United Nations General Assembly</div>
+          </div>
+
+          <div class="item">
+            <div class="item-title">Processing in the United Nations Security Council</div>
+            <div class="item-subtitle">with Rodrigo Lyra and Cecília França</div>
+          </div>
+
+          <div class="item">
+            <div class="item-title">Between the Ballot and the Banknote: Evidence on the Impact of Democratization on Central Bank Independence</div>
+            <div class="item-subtitle">with João Caetano Leite, Cecília França, Alan Cavalcanti, Pedro Marques, Isabela do Canto and Baruque Rodrigues</div>
+          </div>
+        </section>
+
+        <section id="teaching">
+          <h2>Teaching</h2>
+
+          <div class="item">
+            <div class="item-head">
+              <div class="item-title">International Relations Theory II</div>
+              <div class="item-date">2024</div>
+            </div>
+            <div class="item-subtitle">Teaching Assistant · Graduate · Instructor: Mikelli Ribeiro</div>
+          </div>
+
+          <div class="item">
+            <div class="item-head">
+              <div class="item-title">International Relations Theory I</div>
+              <div class="item-date">2023</div>
+            </div>
+            <div class="item-subtitle">Teaching Assistant · Graduate · Instructor: Rafael Mesquita</div>
+          </div>
+
+          <div class="item">
+            <div class="item-head">
+              <div class="item-title">History of Brazilian Political Thought</div>
+              <div class="item-date">2022</div>
+            </div>
+            <div class="item-subtitle">Teaching Assistant · Undergraduate · Instructor: Diogo Cunha</div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Presentations</h2>
+
+          <div class="item">
+            <div class="item-head">
+              <div class="item-title">DPLST–LAC–ABRI Conference, São Paulo, Brazil</div>
+              <div class="item-date">2025</div>
+            </div>
+            <div class="item-subtitle">From Post-War to the Pandemic: The Construction of the Human Rights and Health Agenda at the UN General Assembly</div>
+          </div>
+
+          <div class="item">
+            <div class="item-head">
+              <div class="item-title">1st Symposium on International Organizations (SOI–UFPE)</div>
+              <div class="item-date">2025</div>
+            </div>
+            <div class="item-subtitle">Invited Speaker · International Organizations and the Challenges in the Contemporary Scenario: The Role of the G20 and the UN</div>
+          </div>
+
+          <div class="item">
+            <div class="item-head">
+              <div class="item-title">ACUNS Annual Meeting</div>
+              <div class="item-date">2023</div>
+            </div>
+            <div class="item-subtitle">How populist leaders affect public confidence in International Organizations? A quasi-experimental approach</div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Skills</h2>
+          <div class="split">
+            <div>
+              <div class="item-title" style="margin-bottom: 10px;">Languages</div>
+              <p>Portuguese (native), English (fluent), French (intermediate), German (basic)</p>
+            </div>
+            <div>
+              <div class="item-title" style="margin-bottom: 10px;">Software</div>
+              <p>R, Python (text-as-data, NLP, quantitative text analysis, survival analysis), SPSS, Gephi, FsQCA, LaTeX</p>
+            </div>
+          </div>
+        </section>
+
+        <footer>
+          © 2026 · Built for GitHub Pages
+        </footer>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
