@@ -7,15 +7,15 @@
   <meta name="description" content="Academic website of Rennan Pastich Loureiro" />
   <style>
     :root {
-      --bg: #f5f3ee;
-      --surface: rgba(255,255,255,0.82);
+      --bg: #0f1b2d;
+      --surface: rgba(255,255,255,0.96);
       --surface-strong: #ffffff;
-      --text: #1d1d1b;
-      --muted: #67655f;
-      --line: #e2ddd4;
-      --accent: #1f3c88;
-      --accent-soft: #eef3ff;
-      --shadow: 0 14px 40px rgba(31, 29, 27, 0.06);
+      --text: #162033;
+      --muted: #5c6882;
+      --line: #d8dfeb;
+      --accent: #264b96;
+      --accent-soft: #edf3ff;
+      --shadow: 0 18px 50px rgba(8, 18, 38, 0.18);
       --max: 1200px;
     }
 
@@ -26,9 +26,9 @@
       margin: 0;
       font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(31,60,136,0.08), transparent 28%),
-        radial-gradient(circle at top right, rgba(31,60,136,0.06), transparent 24%),
-        var(--bg);
+        radial-gradient(circle at top left, rgba(104, 142, 255, 0.18), transparent 24%),
+        radial-gradient(circle at top right, rgba(77, 113, 196, 0.14), transparent 22%),
+        linear-gradient(180deg, #12203a 0%, #0f1b2d 55%, #0c1727 100%);
       color: var(--text);
       line-height: 1.68;
     }
@@ -56,25 +56,26 @@
       gap: 18px;
       padding: 14px 0 22px;
       margin-bottom: 28px;
-      border-bottom: 1px solid rgba(226,221,212,0.8);
+      border-bottom: 1px solid rgba(214, 226, 245, 0.22);
     }
 
     .brand {
       font-size: 0.98rem;
       font-weight: 700;
       letter-spacing: 0.01em;
+      color: #f7f9ff;
     }
 
     .nav {
       display: flex;
       flex-wrap: wrap;
       gap: 18px;
-      color: var(--muted);
+      color: rgba(237, 242, 252, 0.76);
       font-size: 0.95rem;
     }
 
     .nav a:hover {
-      color: var(--text);
+      color: #ffffff;
       text-decoration: none;
     }
 
@@ -94,7 +95,7 @@
     section {
       background: var(--surface);
       backdrop-filter: blur(8px);
-      border: 1px solid rgba(226,221,212,0.85);
+      border: 1px solid rgba(194, 208, 231, 0.24);
       box-shadow: var(--shadow);
       border-radius: 24px;
     }
@@ -115,6 +116,18 @@
       padding: 7px 12px;
       margin-bottom: 16px;
       font-weight: 600;
+    }
+
+    .profile-photo {
+      width: 122px;
+      height: 122px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 22px;
+      display: block;
+      margin-bottom: 18px;
+      border: 3px solid rgba(255,255,255,0.82);
+      box-shadow: 0 12px 28px rgba(8, 18, 38, 0.16);
     }
 
     .name {
@@ -151,8 +164,8 @@
       gap: 10px;
       padding: 10px 12px;
       border-radius: 14px;
-      background: rgba(255,255,255,0.7);
-      border: 1px solid rgba(226,221,212,0.8);
+      background: rgba(246, 249, 255, 0.86);
+      border: 1px solid rgba(216, 223, 235, 0.9);
       font-size: 0.95rem;
     }
 
@@ -182,9 +195,9 @@
     }
 
     .button.primary {
-      background: var(--text);
+      background: linear-gradient(180deg, #264b96 0%, #1e3c7a 100%);
       color: #fff;
-      border-color: var(--text);
+      border-color: #1e3c7a;
     }
 
     .button:hover {
@@ -214,7 +227,7 @@
       font-size: 0.95rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--accent);
     }
 
     .hero-grid {
@@ -266,8 +279,8 @@
       padding: 8px 12px;
       border-radius: 999px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,0.78);
-      color: var(--muted);
+      background: rgba(242, 246, 255, 0.92);
+      color: #41506d;
       font-size: 0.91rem;
     }
 
@@ -324,7 +337,7 @@
       border: 1px solid var(--line);
       border-radius: 18px;
       padding: 18px;
-      background: rgba(255,255,255,0.72);
+      background: rgba(245, 248, 255, 0.92);
     }
 
     .mini-card h3 {
@@ -339,7 +352,7 @@
 
     footer {
       text-align: center;
-      color: var(--muted);
+      color: rgba(232, 239, 250, 0.72);
       font-size: 0.92rem;
       padding-top: 8px;
     }
@@ -408,6 +421,7 @@
       <aside class="sidebar">
         <div class="panel">
           <div class="eyebrow">Academic Website</div>
+          <img src="20190116_193109.jpg" alt="Portrait of Rennan Pastich Loureiro" class="profile-photo" />
           <h1 class="name">Rennan Pastich Loureiro</h1>
           <div class="role">Ph.D. Student in Political Science<br />Federal University of Pernambuco (UFPE)</div>
           <p>Recife, Pernambuco, Brazil</p>
