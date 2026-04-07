@@ -4,28 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rennan Pastich Loureiro</title>
-  <meta name="description" content="Academic website of Rennan Pastich Loueiro" />
+  <meta name="description" content="Academic website of Rennan Pastich Loureiro" />
   <style>
     :root {
-      --bg: #f7f7f5;
-      --surface: #ffffff;
-      --text: #1f1f1c;
-      --muted: #66665f;
-      --line: #e5e3dc;
-      --accent: #1a1a1a;
-      --max: 1180px;
+      --bg: #f5f3ee;
+      --surface: rgba(255,255,255,0.82);
+      --surface-strong: #ffffff;
+      --text: #1d1d1b;
+      --muted: #67655f;
+      --line: #e2ddd4;
+      --accent: #1f3c88;
+      --accent-soft: #eef3ff;
+      --shadow: 0 14px 40px rgba(31, 29, 27, 0.06);
+      --max: 1200px;
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(31,60,136,0.08), transparent 28%),
+        radial-gradient(circle at top right, rgba(31,60,136,0.06), transparent 24%),
+        var(--bg);
       color: var(--text);
-      line-height: 1.65;
+      line-height: 1.68;
     }
 
     a {
@@ -41,64 +46,88 @@
     .page {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 32px 24px 64px;
+      padding: 30px 24px 64px;
     }
 
     .topbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 16px;
-      padding-bottom: 18px;
-      border-bottom: 1px solid var(--line);
+      gap: 18px;
+      padding: 14px 0 22px;
       margin-bottom: 28px;
+      border-bottom: 1px solid rgba(226,221,212,0.8);
     }
 
     .brand {
-      font-size: 0.95rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
+      font-size: 0.98rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
     }
 
     .nav {
       display: flex;
       flex-wrap: wrap;
       gap: 18px;
-      font-size: 0.95rem;
       color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav a:hover {
+      color: var(--text);
+      text-decoration: none;
     }
 
     .layout {
       display: grid;
-      grid-template-columns: 320px minmax(0, 1fr);
-      gap: 44px;
+      grid-template-columns: 330px minmax(0, 1fr);
+      gap: 28px;
       align-items: start;
     }
 
     .sidebar {
       position: sticky;
-      top: 24px;
-      align-self: start;
+      top: 22px;
     }
 
-    .card {
+    .panel,
+    section {
       background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 18px;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(226,221,212,0.85);
+      box-shadow: var(--shadow);
+      border-radius: 24px;
+    }
+
+    .panel {
       padding: 26px;
     }
 
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.84rem;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid rgba(31,60,136,0.10);
+      border-radius: 999px;
+      padding: 7px 12px;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
     .name {
-      font-size: 1.9rem;
-      line-height: 1.15;
       margin: 0 0 10px;
-      letter-spacing: -0.03em;
+      font-size: 2.15rem;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
     }
 
     .role {
       color: var(--muted);
       font-size: 1rem;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .sidebar p {
@@ -108,24 +137,66 @@
     }
 
     .contact-list {
+      list-style: none;
       margin: 18px 0 0;
       padding: 0;
-      list-style: none;
       display: grid;
-      gap: 10px;
-      font-size: 0.96rem;
+      gap: 11px;
     }
 
-    .cta {
-      margin-top: 22px;
+    .contact-list a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(226,221,212,0.8);
+      font-size: 0.95rem;
+    }
+
+    .contact-list a:hover {
+      text-decoration: none;
+      background: #fff;
+      transform: translateY(-1px);
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       padding: 11px 16px;
-      border: 1px solid var(--text);
       border-radius: 999px;
       font-size: 0.95rem;
-      font-weight: 500;
+      font-weight: 600;
+      border: 1px solid var(--line);
+      background: var(--surface-strong);
+    }
+
+    .button.primary {
+      background: var(--text);
+      color: #fff;
+      border-color: var(--text);
+    }
+
+    .button:hover {
+      text-decoration: none;
+    }
+
+    .sidebar-note {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      font-size: 0.92rem;
+      color: var(--muted);
     }
 
     .main {
@@ -134,44 +205,74 @@
     }
 
     section {
-      background: var(--surface);
+      padding: 30px;
+    }
+
+    .hero h2,
+    section h2 {
+      margin: 0 0 16px;
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.45fr 0.9fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .hero-title {
+      margin: 0 0 14px;
+      font-size: 2.35rem;
+      line-height: 1.08;
+      letter-spacing: -0.045em;
+      max-width: 14ch;
+    }
+
+    .hero p {
+      margin: 0;
+      font-size: 1.04rem;
+      color: #35342f;
+    }
+
+    .focus-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(248,247,243,0.9));
       border: 1px solid var(--line);
       border-radius: 18px;
-      padding: 28px;
+      padding: 18px;
     }
 
-    h2 {
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+    .focus-card h3 {
+      margin: 0 0 10px;
+      font-size: 0.96rem;
+    }
+
+    .focus-card p {
+      font-size: 0.94rem;
       color: var(--muted);
-      margin: 0 0 16px;
-    }
-
-    .intro {
-      font-size: 1.08rem;
-      color: var(--text);
-      margin: 0;
     }
 
     .tags {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 8px;
+      margin-top: 6px;
     }
 
     .tag {
-      border: 1px solid var(--line);
-      border-radius: 999px;
       padding: 8px 12px;
-      font-size: 0.92rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.78);
       color: var(--muted);
-      background: #fcfcfb;
+      font-size: 0.91rem;
     }
 
     .item {
-      padding: 16px 0;
+      padding: 18px 0;
       border-top: 1px solid var(--line);
     }
 
@@ -187,47 +288,66 @@
     .item-head {
       display: flex;
       justify-content: space-between;
-      gap: 16px;
+      gap: 14px;
       align-items: baseline;
       margin-bottom: 6px;
     }
 
     .item-title {
-      font-weight: 600;
-      font-size: 1rem;
+      font-size: 1.03rem;
+      font-weight: 700;
     }
 
     .item-date {
+      font-size: 0.93rem;
       color: var(--muted);
       white-space: nowrap;
-      font-size: 0.95rem;
     }
 
     .item-subtitle {
+      font-size: 0.96rem;
       color: var(--muted);
       margin-bottom: 8px;
-      font-size: 0.96rem;
     }
 
     .item p {
       margin: 0;
     }
 
-    .split {
+    .two-col {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 18px;
     }
 
-    footer {
-      color: var(--muted);
-      font-size: 0.92rem;
-      text-align: center;
-      padding-top: 10px;
+    .mini-card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      background: rgba(255,255,255,0.72);
     }
 
-    @media (max-width: 920px) {
-      .layout {
+    .mini-card h3 {
+      margin: 0 0 10px;
+      font-size: 0.98rem;
+    }
+
+    .mini-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
+      padding-top: 8px;
+    }
+
+    @media (max-width: 980px) {
+      .layout,
+      .hero-grid,
+      .two-col {
         grid-template-columns: 1fr;
       }
 
@@ -235,14 +355,14 @@
         position: static;
       }
 
-      .split {
-        grid-template-columns: 1fr;
+      .hero-title {
+        max-width: none;
       }
     }
 
     @media (max-width: 640px) {
       .page {
-        padding: 20px 16px 44px;
+        padding: 18px 14px 42px;
       }
 
       .topbar {
@@ -250,14 +370,23 @@
         align-items: flex-start;
       }
 
-      .item-head {
-        flex-direction: column;
-        gap: 2px;
+      section,
+      .panel {
+        padding: 22px;
+        border-radius: 20px;
       }
 
-      section,
-      .card {
-        padding: 22px;
+      .item-head {
+        flex-direction: column;
+        gap: 3px;
+      }
+
+      .name {
+        font-size: 1.85rem;
+      }
+
+      .hero-title {
+        font-size: 1.9rem;
       }
     }
   </style>
@@ -271,36 +400,55 @@
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
         <a href="#teaching">Teaching</a>
-        <a href="#cv">CV</a>
+        <a href="#contact">Contact</a>
       </nav>
     </header>
 
     <div class="layout">
       <aside class="sidebar">
-        <div class="card">
+        <div class="panel">
+          <div class="eyebrow">Academic Website</div>
           <h1 class="name">Rennan Pastich Loureiro</h1>
           <div class="role">Ph.D. Student in Political Science<br />Federal University of Pernambuco (UFPE)</div>
           <p>Recife, Pernambuco, Brazil</p>
-          <p>Research on international organizations, global health governance, comparative politics, democratization, and quantitative methods.</p>
+          <p>Research on international organizations, global health governance, democratization, populism, and quantitative methods.</p>
 
-          <ul class="contact-list">
-            <li><a href="mailto:rennan.loureiro@ufpe.br">rennan.loureiro@ufpe.br</a></li>
-            <li><a href="https://github.com/RennanPL" target="_blank" rel="noreferrer">GitHub</a></li>
-            <li><a href="https://www.linkedin.com/in/rennan-pastich-loureiro-474009238" target="_blank" rel="noreferrer">LinkedIn</a></li>
-            <li><a href="https://orcid.org/0000-0001-7014-3021" target="_blank" rel="noreferrer">ORCID</a></li>
-            <li><a href="http://lattes.cnpq.br/4099489601850122" target="_blank" rel="noreferrer">Lattes</a></li>
+          <ul class="contact-list" id="contact">
+            <li><a href="mailto:rennan.loureiro@ufpe.br"><span>Email</span><span>↗</span></a></li>
+            <li><a href="https://github.com/RennanPL" target="_blank" rel="noreferrer"><span>GitHub</span><span>↗</span></a></li>
+            <li><a href="https://www.linkedin.com/in/rennan-pastich-loureiro-474009238" target="_blank" rel="noreferrer"><span>LinkedIn</span><span>↗</span></a></li>
+            <li><a href="https://orcid.org/0000-0001-7014-3021" target="_blank" rel="noreferrer"><span>ORCID</span><span>↗</span></a></li>
+            <li><a href="http://lattes.cnpq.br/4099489601850122" target="_blank" rel="noreferrer"><span>Lattes</span><span>↗</span></a></li>
           </ul>
 
-          <a class="cta" id="cv" href="Loureiro_Rennan__Stockholm__CV.pdf" target="_blank" rel="noreferrer">Download CV</a>
+          <div class="buttons">
+            <a class="button primary" href="Loureiro_Rennan__Stockholm__CV.pdf" target="_blank" rel="noreferrer">Download CV</a>
+            <a class="button" href="#publications">View Research</a>
+          </div>
+
+          <div class="sidebar-note">
+            Current research interests include the United Nations General Assembly, the United Nations Security Council, comparative politics, and global governance.
+          </div>
         </div>
       </aside>
 
       <main class="main">
-        <section id="about">
+        <section class="hero" id="about">
           <h2>About</h2>
-          <p class="intro">
-            I am a Ph.D. student in Political Science at the Federal University of Pernambuco (UFPE). My research interests include international relations, international organizations, global health governance, the United Nations General Assembly, the United Nations Security Council, comparative politics, democratization, populism, and both quantitative and qualitative methods.
-          </p>
+          <div class="hero-grid">
+            <div>
+              <h3 class="hero-title">Political science research on international organizations and global governance.</h3>
+              <p>
+                I am a Ph.D. student in Political Science at the Federal University of Pernambuco (UFPE). My work focuses on international relations, international organizations, global health governance, the United Nations General Assembly, the United Nations Security Council, comparative politics, democratization, populism, and both quantitative and qualitative methods.
+              </p>
+            </div>
+            <div class="focus-card">
+              <h3>Current Focus</h3>
+              <p>
+                I study how global institutions process political agendas, with special attention to multilateral organizations, health governance, co-sponsorship, and the politics of institutional change.
+              </p>
+            </div>
+          </div>
         </section>
 
         <section id="research">
@@ -309,8 +457,8 @@
             <span class="tag">International Relations</span>
             <span class="tag">International Organizations</span>
             <span class="tag">Global Health Governance</span>
-            <span class="tag">United Nations General Assembly</span>
-            <span class="tag">United Nations Security Council</span>
+            <span class="tag">UN General Assembly</span>
+            <span class="tag">UN Security Council</span>
             <span class="tag">Comparative Politics</span>
             <span class="tag">Democratization</span>
             <span class="tag">Populism</span>
@@ -337,7 +485,8 @@
               <div class="item-date">2021–2024</div>
             </div>
             <div class="item-subtitle">Master in Political Science</div>
-            <p>Thesis: <em>From Post-War to Pandemic: The Construction of the Human Rights and Health Agenda at the United Nations General Assembly</em>.</p>
+            <p>Thesis: <a href="https://repositorio.ufpe.br/handle/123456789/64940" target="_blank" rel="noreferrer"><em>From Post-War to Pandemic: The Construction of the Human Rights and Health Agenda at the United Nations General Assembly</em></a>.</p>
+            <p style="margin-top: 10px; font-size: 0.93rem; color: var(--muted);">Reference: PASTICH, Rennan Loureiro. <em>Do Pós Guerra à Pandemia: A construção da Agenda de Saúde Global na Assembleia Geral da ONU</em>. 2025. Dissertação (Mestrado em Ciência Política) – Universidade Federal de Pernambuco, Recife, 2025.</p>
           </div>
 
           <div class="item">
@@ -413,7 +562,6 @@
 
         <section>
           <h2>Presentations</h2>
-
           <div class="item">
             <div class="item-head">
               <div class="item-title">DPLST–LAC–ABRI Conference, São Paulo, Brazil</div>
@@ -441,13 +589,13 @@
 
         <section>
           <h2>Skills</h2>
-          <div class="split">
-            <div>
-              <div class="item-title" style="margin-bottom: 10px;">Languages</div>
+          <div class="two-col">
+            <div class="mini-card">
+              <h3>Languages</h3>
               <p>Portuguese (native), English (fluent), French (intermediate), German (basic)</p>
             </div>
-            <div>
-              <div class="item-title" style="margin-bottom: 10px;">Software</div>
+            <div class="mini-card">
+              <h3>Software</h3>
               <p>R, Python (text-as-data, quantitative text analysis, survival analysis), SPSS, Gephi, FsQCA, LaTeX</p>
             </div>
           </div>
